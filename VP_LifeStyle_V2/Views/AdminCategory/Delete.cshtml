@@ -1,0 +1,27 @@
+﻿@model Category
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = ViewBag.Action;
+}
+<style>
+    h3 {
+        margin-top: 2rem; /* Space below the navigation */
+    }
+
+    .button-group {
+        margin-top: 1rem;
+    }
+</style>
+<h3 class="text-center">Are you sure you want to delete @Model.CategoryName? This action cannot be undone.</h3>
+
+
+<form asp-action="Delete" method="post" class="text-center">
+    @* Add to reference the product id back to the server for processing *@
+    <input type="hidden" asp-for="CategoryID" />
+    <input type="hidden" asp-for="CategoryName" />
+
+    <div class="button-group d-flex justify-content-center gap-2">
+        <button type="submit" class="btn btn-outline-danger">YES</button>
+        <a class="btn btn-outline-primary" asp-action="Category">NO</a>
+    </div>
+</form>

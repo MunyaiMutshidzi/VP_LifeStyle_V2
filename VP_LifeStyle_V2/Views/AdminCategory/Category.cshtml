@@ -1,0 +1,55 @@
+﻿@model List<Category>
+@{
+
+    //Ensure that the admin layout is being used.
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Category";
+}
+
+<h1>Admin @ViewBag.Title</h1>
+<div class="row"> 
+    @*  Adding the TempData message from methods (Add,Update & Delete), based on the conditioning*@
+    <div class="col-sm-10">
+    @if(TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close"
+         data-bs-dismiss="alert" arial-label="Close"></button>
+         @TempData["Message"]
+        </div>
+    }
+         <table class="table table-bordered table-striped">
+             <thead>
+                 <tr>
+                     <th>Category Name</th>
+                     <th class="text-end">Category Description</th>
+                     <th></th>
+                     <th></th>
+                 </tr>
+             </thead>
+             <tbody>
+                @* It won't use model.product/model.Category because it has been started that the model is
+                a list of Category @model List<Category>' *@
+                @foreach(Category category in Model)
+                {
+                   <tr>
+                       <td>@category.CategoryName</td>
+                       <td>@category.CategoryDescription</td>
+                       <td class="text-center"><a asp-action="Update" asp-route-id="@category.CategoryID" 
+                        class="btn bg-warning btn-outline-dark">Update</a>
+                        </td>
+                       <td class="text-center"><a asp-action="Delete" asp-route-id="@category.CategoryID" 
+                           class="btn bg-danger btn-outline-light">Delete</a>
+                        </td>
+                   </tr>
+                }
+            </tbody>
+
+         </table>
+        <div class="d-flex justify-content-center">
+            <span>
+                <a asp-action="Add" class="btn btn-outline-primary">Add New Category</a>
+            </span>
+        </div>
+     </div>
+  </div>

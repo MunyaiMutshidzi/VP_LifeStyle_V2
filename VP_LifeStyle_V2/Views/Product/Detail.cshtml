@@ -1,0 +1,57 @@
+﻿@model Product
+@{
+    ViewData["Title"] = Model.ProductName+" Details";
+}
+
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Service</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Our Services</h5>
+            <h1 class="mb-5">Explore  Product Details</h1>
+        </div>
+
+      <div class="row">
+          <div class="col-sm-2">
+            <img style="justify-content:center" src="~/img/@ViewBag.ImageFile" width="200px" height="200px"
+                 alt="@Model.ProductName" 
+                 class="img-fluid"/>
+           </div>
+     
+    <div class="col-sm-8">
+        <h2 >@Model.ProductName</h2> 
+       @*  Adding table *@
+       <table class="table table-bordered table-striped">
+           <tr>
+               <td>Product Name:</td>
+               <td>@Model.ProductName</td>
+           </tr>
+           <tr>
+               <td>Product Description: </td>
+               <td>@Model.ProductDescription</td>
+           </tr>
+           <tr>
+               <td>Product Price</td>
+               <td>@Model.Price.ToString("C")</td>
+           </tr>
+       </table>
+      <a asp-controller="Cart" asp-action="Add" a@* sp-route-id="@Model.Slug" *@
+         class="btn btn-warning">Add to Cart</a>
+      <a  asp-action="Menu" class="btn btn-outline-warning"> Return to Menu </a>
+      </div>
+
+      </div>
+    </div>
+</div>

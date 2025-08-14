@@ -1,0 +1,60 @@
+﻿@model LoginView
+@{
+    Layout = "_layout";
+    ViewData["Title"] = "Login";
+}
+
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Login</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="d-flex justify-content-center">
+        <!-- Rounded Background Surface -->
+        <div class="bg-dark rounded-pill shadow-lg p-5 d-flex justify-content-center align-items-center"
+             style="max-width: 500px; width: 100%; border-radius: 15px;">
+            <div class="rounded p-5 w-100">
+                <h2 class="text-white text-center mb-4">Login</h2>
+              @*   In a login/signUp/Register ensure to keep validation outside the form *@
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <div class="form-floating mb-4">
+                        <input asp-for="Username" type="text" class="form-control rounded-pill px-4" id="username"
+                               placeholder="Username" required>
+                        <label asp-for="Username" class="ps-4">Username</label>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input asp-for="Password" type="password" class="form-control rounded-pill px-4"
+                               placeholder="Password"required>
+                        <label asp-for="Password" class="ps-4"></label>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-check mb-4">
+                        <input asp-for="RemeberMe" type="checkbox" class="form-check-input"
+                               id="rememberMe">
+                        <label for="rememberMe" class="form-check-label text-white">
+                            Remember Me
+                        </label>
+                    </div>
+                    <div class="d-grid gap-3">
+                        <button type="submit" class="btn btn-primary rounded-pill py-2">
+                            <i class="fas fa-sign-in-alt me-2"></i> Login
+                        </button>
+                        <a class="btn btn-outline-secondary rounded-pill py-2" asp-controller="Restoran" asp-action="Index">
+                            <i class="fas fa-times me-2"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

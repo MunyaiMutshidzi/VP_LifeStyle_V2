@@ -1,0 +1,38 @@
+﻿@model Category
+@{
+    Layout ="~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = ViewBag.Action;
+}
+
+<div class="d-flex justify-content-center align-items-center bg-dark vh-100">
+    <div class="col-md-6 p-5 bg-dark rounded shadow-lg wow fadeInUp" data-wow-delay="0.2s">
+        <h1 class="text-white mb-4">@ViewBag.Action Online</h1>
+        <form  asp-action="ManageCategory" method="post">
+            @* Validate all the input fields automatically *@
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoryID" />
+            @* During form submission, the value of ProductID will be sent to the server along with other form data *@
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input asp-for="CategoryName" type="text" class="form-control" placeholder="Category Name">
+                        <label asp-for="CategoryName" class="form-label"></label>
+                    </div>
+                </div>
+                @* Adding a textarea *@
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea asp-for=" CategoryDescription" class="form-control" placeholder="Enter Category Description"
+                                  style="height: 100px"></textarea>
+                        <label asp-for="CategoryDescription" class="form-label">Product Description</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    @* Always send the button type to submit, for the data to be sent to the server *@
+                    <button type="submit" class="btn btn-primary w-100 py-3">@ViewBag.Action</button>
+                    <a class="btn btn-secondary w-100 py-3 mt-2" asp-action="Category">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

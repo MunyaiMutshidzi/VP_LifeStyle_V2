@@ -1,0 +1,25 @@
+﻿@model Customer
+
+<div style="max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #333;">Customer Details</h2>
+
+    <div style="margin-bottom: 15px;">
+        <strong>@Html.DisplayNameFor(model => model.CustomerFirstName):</strong> <br />
+        <span style="color: #555;">@Model.CustomerFirstName</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <strong>@Html.DisplayNameFor(model => model.CustomerLastName):</strong> <br />
+        <span style="color: #555;">@Model.CustomerLastName</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <strong>@Html.DisplayNameFor(model => model.CustomerEmail):</strong> <br />
+        <span style="color: #555;">@Model.CustomerEmail</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <strong>@Html.DisplayNameFor(model => model.Registration):</strong> <br />
+        <span style="color: #555;">@Model.Registration.ToShortDateString()</span>
+    </div>
+</div>

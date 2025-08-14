@@ -1,0 +1,82 @@
+﻿@model Register
+@{
+    Layout = "_layout";
+    ViewData["Title"] = "Register";
+}
+
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Register</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="d-flex justify-content-center">
+        <div class="bg-dark rounded-pill shadow-lg p-5 d-flex justify-content-center align-items-center"
+             style="max-width: 500px; width: 100%; border-radius: 15px;">
+            <div class="rounded p-5 w-100">
+                <h2 class="text-white text-center mb-4">Register</h2>
+
+                <form asp-action="Register" asp-controller="Account" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ReturnUrl" />
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Fullname" type="text" class="form-control rounded-pill px-4"
+                               placeholder="Full Names" required>
+                        <label asp-for="Fullname" class="ps-4">Full Names</label>
+                        <span asp-validation-for="Fullname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Username" type="text" class="form-control rounded-pill px-4"
+                               placeholder="Username" required>
+                        <label asp-for="Username" class="ps-4">Username</label>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="EmailAddress" type="email" class="form-control rounded-pill px-4"
+                               placeholder="Email Address" required>
+                        <label asp-for="EmailAddress" class="ps-4">Email Address</label>
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Password" type="password" class="form-control rounded-pill px-4"
+                               placeholder="Password" required>
+                        <label asp-for="Password" class="ps-4">Password</label>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-floating mb-4">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control rounded-pill px-4"
+                               placeholder="Confirm Password" required>
+                        <label asp-for="ConfirmPassword" class="ps-4">Confirm Password</label>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <label class="form-label">Upload an Avatar Image</label>
+                    <div class="form-floating mb-4">
+                        <input asp-for="AvatarImage" class="form-control rounded-pill px-4">
+                    </div>
+
+                    <div class="d-grid gap-3">
+                        <button type="submit" class="btn btn-primary rounded-pill py-2">
+                            <i class="fas fa-sign-in-alt me-2"></i> Register
+                        </button>
+                        <a class="btn btn-outline-secondary rounded-pill py-2" asp-controller="Restoran" asp-action="Index">
+                            <i class="fas fa-times me-2"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
