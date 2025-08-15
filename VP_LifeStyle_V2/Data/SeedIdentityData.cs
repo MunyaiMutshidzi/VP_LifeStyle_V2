@@ -37,7 +37,7 @@ namespace VP_LifeStyle_V2.Data
             UserManager<AppUser> UserManager = app.ApplicationServices
                                                     .CreateScope().ServiceProvider
                                                     .GetRequiredService<UserManager<AppUser>>();
-            //2nd RoleManager - Provides APIz to manage the roles e.g staff,admin/customer and ect
+            //2nd RoleManager - Provides APIs to manage the roles e.g staff,admin/customer and ect
             RoleManager<IdentityRole> RoleManager = app.ApplicationServices
                                                     .CreateScope().ServiceProvider
                                                     .GetRequiredService<RoleManager<IdentityRole>>();   

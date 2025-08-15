@@ -54,7 +54,9 @@ namespace VP_LifeStyle_V2.Controllers
 
                     if (result.Succeeded)
                     {
-                        return Redirect(loginViewModel?.ReturnUrl ?? "/RoleAdmin/Index"); 
+                       // return RedirectToAction("Index","RoleAdmin");
+                        return Redirect(loginViewModel?.ReturnUrl ?? "/RoleAdmin/Index");
+                       // return Redirect("/RoleAdmin/Index"); 
                     }
                 }
             }

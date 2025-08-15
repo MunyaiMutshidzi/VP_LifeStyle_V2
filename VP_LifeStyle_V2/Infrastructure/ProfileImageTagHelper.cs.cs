@@ -22,7 +22,7 @@ namespace VP_LifeStyle_V2.Infrastructure
         {
             AppUser user = await _userManager.FindByNameAsync(UserName);
 
-            if (user != null)
+            if (user != null && user.UserName !="Admin")
             {
                 string mimeType = "image/jpeg";
                 string base64 = Convert.ToBase64String(user.AvatarImageData);
